@@ -12,6 +12,8 @@
 		676BAD4B103FC3AA00C98AA0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676BAD4A103FC3AA00C98AA0 /* Cocoa.framework */; };
 		676BAD4F103FC3B600C98AA0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676BAD4E103FC3B600C98AA0 /* AppKit.framework */; };
 		676BAD53103FC3C100C98AA0 /* AppKitScripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676BAD52103FC3C100C98AA0 /* AppKitScripting.framework */; };
+		67D07CE71041A38600CDE66B /* libboost_serialization.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D07CE61041A38600CDE66B /* libboost_serialization.dylib */; };
+		67D07CE91041A38600CDE66B /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D07CE81041A38600CDE66B /* libboost_system.dylib */; };
 		8DD76F9A0486AA7600D96B5E /* iTunesSpeechBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* iTunesSpeechBridge.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* iTunesSpeechBridge.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* iTunesSpeechBridge.1 */; };
@@ -233,6 +235,9 @@
 		676BAD4A103FC3AA00C98AA0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		676BAD4E103FC3B600C98AA0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		676BAD52103FC3C100C98AA0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
+		67D07C6E1041900700CDE66B /* IPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPC.h; path = include/IPC.h; sourceTree = "<group>"; };
+		67D07CE61041A38600CDE66B /* libboost_serialization.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_serialization.dylib; path = usr/lib/libboost_serialization.dylib; sourceTree = SDKROOT; };
+		67D07CE81041A38600CDE66B /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = usr/lib/libboost_system.dylib; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* iTunesSpeechBridge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = iTunesSpeechBridge; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* iTunesSpeechBridge.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = iTunesSpeechBridge.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +252,8 @@
 				676BAD4B103FC3AA00C98AA0 /* Cocoa.framework in Frameworks */,
 				676BAD4F103FC3B600C98AA0 /* AppKit.framework in Frameworks */,
 				676BAD53103FC3C100C98AA0 /* AppKitScripting.framework in Frameworks */,
+				67D07CE71041A38600CDE66B /* libboost_serialization.dylib in Frameworks */,
+				67D07CE91041A38600CDE66B /* libboost_system.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,22 +264,25 @@
 			isa = PBXGroup;
 			children = (
 				67477F861040E0A90040558D /* RCF */,
-				08FB7795FE84155DC02AAC07 /* Source */,
+				08FB7795FE84155DC02AAC07 /* iTunesSpeechBridge */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				67D07CE61041A38600CDE66B /* libboost_serialization.dylib */,
+				67D07CE81041A38600CDE66B /* libboost_system.dylib */,
 			);
 			name = iTunesSpeechBridge;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
+		08FB7795FE84155DC02AAC07 /* iTunesSpeechBridge */ = {
 			isa = PBXGroup;
 			children = (
 				67477DEC1040DA1F0040558D /* iTunes.h */,
 				32A70AAB03705E1F00C91783 /* iTunesSpeechBridge_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* iTunesSpeechBridge.m */,
+				67D07C6E1041900700CDE66B /* IPC.h */,
 			);
-			name = Source;
+			name = iTunesSpeechBridge;
 			sourceTree = "<group>";
 		};
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
@@ -766,13 +776,16 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/RCF/include",
 					"/Developer/SDKs/MacOSX10.5.sdk/usr/include/boost-1_39",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
@@ -783,7 +796,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/RCF/include",
@@ -797,6 +812,7 @@
 					"-I$(SRCROOT)/RCF/include/SF",
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx10.5;

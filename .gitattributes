@@ -1,0 +1,2 @@
+*.pbxproj -crlf -diff -merge
+*.xcodeproj -cflf -diff -merge

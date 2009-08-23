@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'iTunesSpeechBridge' target in the 'iTunesSpeechBridge' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

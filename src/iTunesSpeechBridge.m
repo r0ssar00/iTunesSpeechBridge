@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import "../include/iTunes.h"
 #import "IPC.h"
 #import <boost/tuple/tuple.hpp>
@@ -7,6 +8,7 @@
 #import <map>
 #import <iostream>
 #import <algorithm>
+#include <unistd.h>
 using namespace std;
 using namespace boost;
 typedef vector<string> str_list;
@@ -71,6 +73,8 @@ int main(int argc, const char *argv[]) {
 	sort_vector(artists);
 	sort_vector(genres);
 	// all data acquired, respond to requests
+	//while (true)
+	//	usleep(2000);
 	[ pool drain ];
-	return 0;
+	return NSApplicationMain(argc,  (const char **) argv);
 }

@@ -70,9 +70,7 @@ int main (int argc, const char * argv[]) {
 	sort_vector(albums);
 	sort_vector(artists);
 	sort_vector(genres);
-	cout << get<0>(library["Evanescence"]["The Open Door"][0]) << endl;
-	cout << artists_for_track["Sweet Sacrifice"][0] << endl;
-	cout << artists_for_track_with_album["Sweet Sacrifice"]["Evanescence"][0] << endl;
+	// all data acquired, respond to requests
     [pool drain];
     return 0;
 }
